@@ -210,7 +210,7 @@
               <div>
                 <div class="info-title">Support Email</div>
                 <div class="info-val">
-                  <a href="mailto:support@truetalkie.app" class="email-link">support@truetalkie.app</a>
+                  <a href="mailto:raziahmed.rz@gmail.com" class="email-link">raziahmed.rz@gmail.com</a>
                 </div>
               </div>
             </div>
@@ -280,6 +280,12 @@
               <textarea id="message" class="form-textarea" placeholder="Describe your question or issue in detail..." required></textarea>
             </div>
 
+            
+            <div id="statusMessage" style="display: none; background: rgba(0, 210, 133, 0.12); border: 1px solid rgba(0, 210, 133, 0.35); border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; font-size: 0.9rem; color: #fff;">
+              <strong style="color: var(--accent);">✓ Opening your email app...</strong><br>
+              Your message was prepared for <strong>raziahmed.rz@gmail.com</strong>.<br>
+              <span style="font-size: 0.82rem; color: var(--text-muted);">If your email app didn't open automatically, you can send an email directly to <a href="mailto:raziahmed.rz@gmail.com" style="color: var(--accent); font-weight: 600;">raziahmed.rz@gmail.com</a>.</span>
+            </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">
               <span>Send Message</span>
               →
@@ -355,17 +361,34 @@
     </div>
   </footer>
 
-  <script>
+    <script>
     function handleFormSubmit(event) {
       event.preventDefault();
       const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
       const topic = document.getElementById('topic').value;
       const message = document.getElementById('message').value;
 
-      const subject = encodeURIComponent('[True Talkie Support] ' + topic + ' from ' + name);
-      const body = encodeURIComponent(message + '\n\nSent by: ' + name);
+      const subject = encodeURIComponent('[True Talkie Support] ' + topic + ' - ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'User Email: ' + email + '\n' +
+        'Category: ' + topic + '\n\n' +
+        'Message:\n' + message + '\n\n' +
+        '------------------------------------\n' +
+        'Sent via True Talkie Support Portal'
+      );
       
-      window.location.href = 'mailto:support@truetalkie.app?subject=' + subject + '&body=' + body;
+      // Redirects directly to the user email client addressed to raziahmed.rz@gmail.com
+      const mailtoUrl = 'mailto:raziahmed.rz@gmail.com?subject=' + subject + '&body=' + body;
+      window.location.href = mailtoUrl;
+
+      // Show instant confirmation banner
+      const statusDiv = document.getElementById('statusMessage');
+      if (statusDiv) {
+        statusDiv.style.display = 'block';
+        statusDiv.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   </script>
 </body>
