@@ -141,6 +141,7 @@
     }
 
     table {
+      min-width: 540px;
       width: 100%;
       border-collapse: collapse;
       text-align: left;
@@ -200,21 +201,35 @@
   <div class="ambient-glow"></div>
 
   <!-- Navbar -->
+    <!-- Responsive Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-brand">
         <img src="assets/logo.png" alt="True Talkie Logo" class="nav-logo">
         <span>True Talkie</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="privacy.html" class="nav-link active">Privacy Policy</a></li>
-        <li><a href="contact.html" class="nav-link">Support & Contact</a></li>
-      </ul>
-      <a href="contact.html" class="nav-cta">
-        <span>Contact Us</span>
-        →
-      </a>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Nav Menu (Desktop & Mobile Drawer) -->
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="privacy.html" class="nav-link active">Privacy Policy</a></li>
+          <li><a href="contact.html" class="nav-link">Support & Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrapper">
+          <a href="contact.html" class="nav-cta">
+            <span>Contact Us</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -433,5 +448,6 @@
       <span>Published for Google Play Console Compliance</span>
     </div>
   </footer>
+  <script src="nav.js"></script>
 </body>
 </html>
