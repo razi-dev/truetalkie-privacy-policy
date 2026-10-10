@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True Talkie - Real-Time Push-To-Talk Voice App</title>
+  <meta name="description" content="True Talkie: Instant low-latency push-to-talk voice communication app. Works over offline Wi-Fi mesh without internet and encrypted WebRTC channels.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Home Page Specific Styling */
+    .hero {
+      padding: 40px 0 60px 0;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    /* Tactical HUD Preview Card */
+    .hud-card {
+      background: linear-gradient(160deg, #101626, #090d16);
+      border: 1px solid rgba(0, 210, 133, 0.25);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 210, 133, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .hud-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(0, 210, 133, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 210, 133, 0.2);
+    }
+
+    .hud-channel {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .hud-channel-title {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .hud-channel-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    .ptt-visual {
+      background: radial-gradient(circle, #0e1e1e 0%, #070d12 100%);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 24px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 210, 133, 0.25);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .ptt-visual:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 45px rgba(0, 210, 133, 0.45);
+    }
+
+    .ptt-icon {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .ptt-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .peer-list {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+    }
+
+    .peer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      padding: 6px 0;
+    }
+
+    .peer-item:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .peer-name {
+      color: var(--text-primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .peer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .peer-status {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    /* Grid Sections */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0, 210, 133, 0.1);
+      border: 1px solid rgba(0, 210, 133, 0.25);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    /* Architecture Section */
+    .arch-box {
+      margin-top: 60px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .spec-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .spec-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .spec-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hud-card {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="True Talkie Logo" class="nav-logo">
+        <span>True Talkie</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+        <li><a href="contact.html" class="nav-link">Support & Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">
+        <span>Get in Touch</span>
+        →
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="pulse-dot"></span>
+            Next-Gen Tactical Audio
+          </div>
+          <h1>Instant Voice Communication. Anywhere.</h1>
+          <p>
+            True Talkie turns your mobile device into an ultra-low latency push-to-talk walkie-talkie. Communicate instantly over offline Wi-Fi mesh without internet, or bridge unlimited distances over secure WebRTC cloud channels.
+          </p>
+          <div class="hero-actions">
+            <a href="privacy.html" class="btn btn-primary">
+              <span>Read Privacy Policy</span>
+              →
+            </a>
+            <a href="contact.html" class="btn btn-secondary">
+              Developer Support
+            </a>
+          </div>
+        </div>
+
+        <!-- HUD Preview -->
+        <div class="hud-card">
+          <div class="hud-header">
+            <span class="hud-tag">ONLINE · MESH ACTIVE</span>
+            <span style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">OPUS 48kHz</span>
+          </div>
+
+          <div class="hud-channel">
+            <div class="hud-channel-title">Active Channel</div>
+            <div class="hud-channel-name">CH-01 [TACTICAL]</div>
+          </div>
+
+          <div class="ptt-visual">
+            <div class="ptt-icon">🎙️</div>
+            <div class="ptt-label">PUSH TO TALK</div>
+          </div>
+
+          <div class="peer-list">
+            <div class="peer-item">
+              <div class="peer-name">
+                <span class="peer-dot"></span>
+                <span>Base Station (Host)</span>
+              </div>
+              <span class="peer-status">CONNECTED</span>
+            </div>
+            <div class="peer-item">
+              <div class="peer-name">
+                <span class="peer-dot"></span>
+                <span>Field Operator 2</span>
+              </div>
+              <span class="peer-status">LISTENING</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Capabilities -->
+      <section style="margin-top: 60px;">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 30px auto;">
+          <h2>Engineered for Mission-Critical Audio</h2>
+          <p>Built with native audio pipelines and zero-retention privacy for teams, events, security, and outdoor operations.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="card">
+            <div class="feature-icon">📡</div>
+            <h3>Offline Local Wi-Fi Mesh</h3>
+            <p>Communicate when cellular towers are down. True Talkie broadcasts direct UDP audio over local Wi-Fi, hotspot, and Wi-Fi Direct with zero internet connection.</p>
+          </div>
+
+          <div class="card">
+            <div class="feature-icon">🌐</div>
+            <h3>Global WebRTC & TURN</h3>
+            <p>Traverse strict NATs and carrier firewalls across 4G and 5G mobile networks with enterprise TURN relay fallbacks and sub-50ms peer signaling.</p>
+          </div>
+
+          <div class="card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Zero Audio Retention</h3>
+            <p>Your privacy is non-negotiable. Voice packets are streamed live peer-to-peer and never stored, logged, recorded, or uploaded to servers.</p>
+          </div>
+
+          <div class="card">
+            <div class="feature-icon">⚡</div>
+            <h3>Background Foreground Service</h3>
+            <p>Never miss a transmission. Android Foreground Service keeps the walkie-talkie audio receiver alive even when your phone is locked or you are using other apps.</p>
+          </div>
+
+          <div class="card">
+            <div class="feature-icon">🎧</div>
+            <h3>Bluetooth & Hardware Headsets</h3>
+            <p>Seamlessly routes live audio to tactical headsets, Bluetooth earpieces, or loud speakerphones with automatic echo-cancellation and noise reduction.</p>
+          </div>
+
+          <div class="card">
+            <div class="feature-icon">🔋</div>
+            <h3>Battery & Bandwidth Optimized</h3>
+            <p>Engineered with lightweight native modules and wake-lock management to preserve your device battery during 12-hour continuous standby operations.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture Overview -->
+      <section class="arch-box">
+        <h2>App Architecture & Developer Specifications</h2>
+        <p>Technical transparency and standards compliance for Google Play Store verification and users:</p>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-label">Package Name</div>
+            <div class="spec-val" style="font-family: var(--font-mono); font-size: 0.95rem;">com.truetalkie.app</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Signaling Engine</div>
+            <div class="spec-val">Supabase Realtime</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Media Transport</div>
+            <div class="spec-val">WebRTC / DTLS-SRTP</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Relay Infrastructure</div>
+            <div class="spec-val">Metered.ca TURN</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Offline Mesh</div>
+            <div class="spec-val">UDP Multicast Socket</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Target Android SDK</div>
+            <div class="spec-val">Android 16 (API 36)</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>
+          <img src="assets/logo.png" alt="Logo" style="width: 24px; height: 24px; border-radius: 6px;">
+          True Talkie
+        </h4>
+        <p>Instant Push-To-Talk voice communication app for Android. Built for speed, reliability, and privacy.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Support & Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal & Security</h5>
+          <ul>
+            <li><a href="privacy.html">Data Safety</a></li>
+            <li><a href="privacy.html#permissions">Permissions</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 True Talkie. All rights reserved.</span>
+      <span>Published for Google Play Console Compliance</span>
+    </div>
+  </footer>
+</body>
+</html>

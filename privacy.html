@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - True Talkie</title>
+  <meta name="description" content="Privacy Policy for True Talkie: Detailed disclosure of zero audio retention, permissions, and Google Play Data Safety compliance.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Privacy Specific Elements */
+    .privacy-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 32px;
+      margin-bottom: 40px;
+    }
+
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    .meta-bar span strong {
+      color: #fff;
+    }
+
+    .summary-card {
+      background: linear-gradient(145deg, rgba(21, 28, 48, 0.7), rgba(15, 20, 34, 0.9));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .summary-card h3 {
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-block {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 8px;
+    }
+
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    ul.policy-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 18px 0;
+    }
+
+    ul.policy-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    ul.policy-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      top: -2px;
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+
+    /* Permissions Grid */
+    .permissions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .perm-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .perm-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 210, 133, 0.3);
+    }
+
+    .perm-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .perm-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Table */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: var(--bg-card);
+      color: #fff;
+      padding: 14px 18px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 14px 18px;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .badge-no {
+      background: rgba(0, 210, 133, 0.12);
+      color: #00d285;
+      border: 1px solid rgba(0, 210, 133, 0.3);
+    }
+
+    .badge-transient {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .contact-banner {
+      background: linear-gradient(135deg, var(--bg-surface), var(--bg-card));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="True Talkie Logo" class="nav-logo">
+        <span>True Talkie</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="privacy.html" class="nav-link active">Privacy Policy</a></li>
+        <li><a href="contact.html" class="nav-link">Support & Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">
+        <span>Contact Us</span>
+        →
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="max-width: 900px;">
+      <header class="privacy-header">
+        <div class="badge">
+          <span class="pulse-dot"></span>
+          Privacy & Security Standard
+        </div>
+        <h1>Privacy Policy</h1>
+        <div class="meta-bar">
+          <span>Application: <strong>True Talkie</strong> (com.truetalkie.app)</span>
+          <span>Effective Date: <strong>October 10, 2026</strong></span>
+          <span>Compliance: <strong>Google Play Data Safety</strong></span>
+        </div>
+      </header>
+
+      <!-- Privacy at a Glance -->
+      <div class="summary-card">
+        <h3>🛡️ Privacy at a Glance</h3>
+        <p>
+          <strong>True Talkie is engineered around a strict Zero-Retention Architecture.</strong> 
+          We do not record, transcribe, save, or monetize your voice communications. All push-to-talk audio is streamed ephemerally in real-time directly between devices over local UDP mesh or encrypted WebRTC sessions and ceases to exist immediately upon transmission.
+        </p>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="section-block">
+        <h2><span class="section-num">1</span> Information We Collect & How It Is Used</h2>
+        <p>True Talkie is a real-time Push-to-Talk (PTT) communication utility. Our data handling strictly reflects our mission to deliver real-time voice without compromising your privacy:</p>
+        
+        <ul class="policy-list">
+          <li><strong>Voice Audio Data:</strong> When you press and hold the PTT button, the app accesses your device microphone to capture live audio. The audio is converted into digital streams and transmitted directly to peers on the channel. <strong>No audio files, voice clips, or transcriptions are ever saved on device storage or uploaded to persistent servers.</strong></li>
+          <li><strong>Local Display Name & Session IDs:</strong> When entering a channel, the app uses a temporary local display name (e.g. "Worker", "Base Station") and generates a randomized session peer ID. These are used strictly to coordinate real-time speaker states within the active session.</li>
+          <li><strong>Channel Signaling Metadata:</strong> In internet mode, transient connection metadata (WebRTC SDP offers/answers and ICE candidate addresses) are exchanged to establish direct peer-to-peer audio links. This handshake data is discarded as soon as peers connect.</li>
+        </ul>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section-block" id="permissions">
+        <h2><span class="section-num">2</span> Device Permissions & Purpose</h2>
+        <p>True Talkie requests only the bare minimum Android permissions required for walkie-talkie operation:</p>
+
+        <div class="permissions-grid">
+          <div class="perm-card">
+            <div class="perm-title">🎤 RECORD_AUDIO</div>
+            <div class="perm-desc">Activated only while you hold the Push-To-Talk button to transmit your live voice to channel participants.</div>
+          </div>
+          <div class="perm-card">
+            <div class="perm-title">⚡ FOREGROUND_SERVICE (MICROPHONE)</div>
+            <div class="perm-desc">Keeps the audio channel listening in the background so you can receive incoming voice calls when your screen is locked.</div>
+          </div>
+          <div class="perm-card">
+            <div class="perm-title">🔔 POST_NOTIFICATIONS</div>
+            <div class="perm-desc">Displays a persistent status bar notification ("Listening...") ensuring full user transparency when background audio is active.</div>
+          </div>
+          <div class="perm-card">
+            <div class="perm-title">📡 Wi-Fi & Network Access</div>
+            <div class="perm-desc">Allows discovery and direct UDP socket transmission over local Wi-Fi and mobile hotspots without needing an internet connection.</div>
+          </div>
+          <div class="perm-card">
+            <div class="perm-title">🎧 BLUETOOTH & Audio Settings</div>
+            <div class="perm-desc">Allows seamless audio routing to Bluetooth tactical headsets, hands-free earpieces, or built-in speakerphones.</div>
+          </div>
+          <div class="perm-card">
+            <div class="perm-title">🔋 WAKE_LOCK</div>
+            <div class="perm-desc">Prevents system deep sleep during live voice transmissions, avoiding audio dropouts when communicating.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section-block">
+        <h2><span class="section-num">3</span> Google Play Data Safety Compliance Matrix</h2>
+        <p>This matrix directly reflects our answers in the Google Play Console Data Safety questionnaire:</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Data Category</th>
+                <th>Collected?</th>
+                <th>Shared with 3rd Parties?</th>
+                <th>Handling & Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Voice / Audio Recordings</strong></td>
+                <td><span class="status-badge badge-transient">Transient Stream</span></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td>Streamed live peer-to-peer. Never stored on disk or cloud.</td>
+              </tr>
+              <tr>
+                <td><strong>Personal Info (Name, Email, Phone)</strong></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td>No user accounts, sign-ups, or logins are required.</td>
+              </tr>
+              <tr>
+                <td><strong>Precise Location Data (GPS)</strong></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td>True Talkie does not request or track GPS/Location.</td>
+              </tr>
+              <tr>
+                <td><strong>Financial & Payment Information</strong></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td>None collected.</td>
+              </tr>
+              <tr>
+                <td><strong>Device Identifiers & Diagnostics</strong></td>
+                <td><span class="status-badge badge-transient">Ephemeral Session</span></td>
+                <td><span class="status-badge badge-no">No</span></td>
+                <td>Randomized peer IDs discarded upon leaving channel.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="section-block">
+        <h2><span class="section-num">4</span> Third-Party Services & Infrastructure</h2>
+        <p>When operating in global internet mode, True Talkie coordinates connections using trusted infrastructure partners:</p>
+        <ul class="policy-list">
+          <li><strong>Supabase (Realtime Engine):</strong> Used exclusively as a signaling switchboard to exchange connection negotiation metadata (SDP handshake and channel presence). Supabase does not handle, relay, or store audio streams.</li>
+          <li><strong>Metered.ca (STUN / TURN Relays):</strong> When devices are behind strict cellular carrier NATs (4G/5G mobile towers), encrypted WebRTC packets transit through Metered TURN relays. These relays serve strictly as encrypted transport pipes and do not inspect, decode, or save audio payloads.</li>
+          <li><strong>Google Play Services:</strong> Used to check for in-app updates and distribute verified app bundles.</li>
+        </ul>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="section-block">
+        <h2><span class="section-num">5</span> Security & Encryption</h2>
+        <p>True Talkie implements industry-standard protocols to guarantee end-to-end communication privacy:</p>
+        <ul class="policy-list">
+          <li><strong>WebRTC Encryption:</strong> All voice streams traveling over the public internet are encrypted using mandatory <strong>DTLS-SRTP (Datagram Transport Layer Security / Secure Real-Time Transport Protocol)</strong> standards.</li>
+          <li><strong>Offline Isolation:</strong> In local mesh mode, voice packets circulate exclusively across your private Wi-Fi or hotspot subnet and never reach the public internet.</li>
+          <li><strong>Zero-Log Architecture:</strong> Our backend systems retain zero logs of who communicated, channel session timestamps, or conversation audio.</li>
+        </ul>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="section-block">
+        <h2><span class="section-num">6</span> Children's Privacy (COPPA Compliance)</h2>
+        <p>
+          True Talkie does not knowingly collect or solicit personal information from children under 13 (or under 16 in the European Union). Because our application does not require user registration or profile creation, no personal identities are gathered from any user.
+        </p>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="section-block">
+        <h2><span class="section-num">7</span> User Rights & Data Deletion</h2>
+        <p>
+          Because True Talkie operates on a zero-retention model without storing user accounts or personal data on external servers, there is no personal data stored to request deletion for. You can reset all local app preferences at any time simply by clearing the application storage in Android Settings or uninstalling the app.
+        </p>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="section-block">
+        <h2><span class="section-num">8</span> Policy Modifications</h2>
+        <p>
+          We may update this Privacy Policy to reflect app updates or legal requirements. Material updates will be published on this page with an updated "Effective Date".
+        </p>
+      </div>
+
+      <!-- Contact Banner -->
+      <div class="contact-banner">
+        <h3>Questions Regarding Our Privacy Practices?</h3>
+        <p style="margin: 8px 0 20px 0;">If you have any questions or require assistance regarding our privacy compliance, please contact our support team:</p>
+        <a href="contact.html" class="btn btn-primary">
+          <span>Contact Developer Support</span>
+          →
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>
+          <img src="assets/logo.png" alt="Logo" style="width: 24px; height: 24px; border-radius: 6px;">
+          True Talkie
+        </h4>
+        <p>Instant Push-To-Talk voice communication app for Android. Built for speed, reliability, and privacy.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Support & Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal & Security</h5>
+          <ul>
+            <li><a href="privacy.html">Data Safety</a></li>
+            <li><a href="privacy.html#permissions">Permissions</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 True Talkie. All rights reserved.</span>
+      <span>Published for Google Play Console Compliance</span>
+    </div>
+  </footer>
+</body>
+</html>

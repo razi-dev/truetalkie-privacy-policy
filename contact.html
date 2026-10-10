@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Contact - True Talkie</title>
+  <meta name="description" content="Get support, report bugs, or contact the developer of True Talkie walkie-talkie app.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Contact Specific Styles */
+    .contact-hero {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 36px;
+      margin-bottom: 60px;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(0, 210, 133, 0.1);
+      border: 1px solid rgba(0, 210, 133, 0.25);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .info-title {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .info-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .email-link {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+      transition: color 0.2s;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Form */
+    .form-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 210, 133, 0.15);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .faq-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .faq-card h4 {
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .faq-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="True Talkie Logo" class="nav-logo">
+        <span>True Talkie</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+        <li><a href="contact.html" class="nav-link active">Support & Contact</a></li>
+      </ul>
+      <a href="privacy.html" class="nav-cta">
+        <span>Privacy Policy</span>
+        →
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <header class="contact-hero">
+        <div class="badge">
+          <span class="pulse-dot"></span>
+          Developer & User Support
+        </div>
+        <h1>Get in Touch with True Talkie</h1>
+        <p>
+          Need assistance with channel setup, offline mesh pairing, bug reports, or privacy inquiries? We're here to help you get the most out of your push-to-talk experience.
+        </p>
+      </header>
+
+      <div class="contact-grid">
+        <!-- Contact Information Column -->
+        <div>
+          <div class="info-card">
+            <h3>Contact Channels</h3>
+            <p style="font-size: 0.92rem; margin-bottom: 24px;">For prompt assistance, reach out directly through our verified developer channels:</p>
+
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div>
+                <div class="info-title">Support Email</div>
+                <div class="info-val">
+                  <a href="mailto:support@truetalkie.app" class="email-link">support@truetalkie.app</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">⏱️</div>
+              <div>
+                <div class="info-title">Response Time</div>
+                <div class="info-val">Typically within 24–48 hours</div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">📱</div>
+              <div>
+                <div class="info-title">Application Package</div>
+                <div class="info-val" style="font-family: var(--font-mono); font-size: 0.95rem;">com.truetalkie.app</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card" style="margin-bottom: 0;">
+            <h3>Support Guidelines</h3>
+            <ul style="list-style: none; padding: 0; margin-top: 12px;">
+              <li style="margin-bottom: 12px; font-size: 0.92rem; color: var(--text-muted); display: flex; gap: 10px;">
+                <span style="color: var(--accent);">✓</span> Include your device model (e.g. Samsung Galaxy S23, Pixel 8) and Android OS version.
+              </li>
+              <li style="margin-bottom: 12px; font-size: 0.92rem; color: var(--text-muted); display: flex; gap: 10px;">
+                <span style="color: var(--accent);">✓</span> Specify whether the issue happened in Offline Mesh mode (Wi-Fi) or Global WebRTC mode (Cellular/4G/5G).
+              </li>
+              <li style="font-size: 0.92rem; color: var(--text-muted); display: flex; gap: 10px;">
+                <span style="color: var(--accent);">✓</span> Note any Bluetooth headsets or audio devices connected at the time.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Direct Message Form -->
+        <div class="form-box">
+          <h3 style="margin-bottom: 6px;">Send Us a Message</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 24px;">Fill out this inquiry form to prepare an email directly to our support desk:</p>
+
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" class="form-input" placeholder="e.g. Alex Hunter" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Your Email</label>
+              <input type="email" id="email" class="form-input" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="topic" class="form-label">Inquiry Category</label>
+              <select id="topic" class="form-select">
+                <option value="Technical Support">Technical Support / Connection Issue</option>
+                <option value="Bug Report">Bug Report</option>
+                <option value="Privacy Question">Privacy & Data Safety Question</option>
+                <option value="Feature Request">Feature Request / Suggestion</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message Details</label>
+              <textarea id="message" class="form-textarea" placeholder="Describe your question or issue in detail..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <span>Send Message</span>
+              →
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <section class="faq-section" id="faq">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to common questions about True Talkie operation.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-card">
+            <h4>How does offline mode work without internet?</h4>
+            <p>True Talkie uses local UDP broadcast sockets on your local network. When devices are connected to the same Wi-Fi router or portable mobile hotspot, audio travels directly peer-to-peer without ever touching the internet.</p>
+          </div>
+
+          <div class="faq-card">
+            <h4>Why is there a persistent "Listening..." notification?</h4>
+            <p>Android requires a Foreground Service with an active notification to ensure the operating system doesn't put the app to sleep. This lets you receive incoming calls while your phone is in your pocket or the screen is turned off.</p>
+          </div>
+
+          <div class="faq-card">
+            <h4>Are any of my audio conversations recorded?</h4>
+            <p>No. True Talkie operates on a strict zero-retention architecture. Voice is transmitted as live audio packets and played immediately on connected devices. No audio files or logs are ever stored.</p>
+          </div>
+
+          <div class="faq-card">
+            <h4>Can I talk over cellular mobile data (4G/5G)?</h4>
+            <p>Yes. When internet is detected, True Talkie automatically engages WebRTC with global TURN relays to traverse carrier firewalls and connect you with peers anywhere in the world.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>
+          <img src="assets/logo.png" alt="Logo" style="width: 24px; height: 24px; border-radius: 6px;">
+          True Talkie
+        </h4>
+        <p>Instant Push-To-Talk voice communication app for Android. Built for speed, reliability, and privacy.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Support & Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal & Security</h5>
+          <ul>
+            <li><a href="privacy.html">Data Safety</a></li>
+            <li><a href="privacy.html#permissions">Permissions</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 True Talkie. All rights reserved.</span>
+      <span>Published for Google Play Console Compliance</span>
+    </div>
+  </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const topic = document.getElementById('topic').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent('[True Talkie Support] ' + topic + ' from ' + name);
+      const body = encodeURIComponent(message + '\n\nSent by: ' + name);
+      
+      window.location.href = 'mailto:support@truetalkie.app?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>
